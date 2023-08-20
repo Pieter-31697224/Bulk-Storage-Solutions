@@ -105,7 +105,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\About.aspx" />
+    <Content Include="Views\Storage.aspx" />
     <Content Include="Views\Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -162,12 +162,12 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="DAL\SqlConnection\DatabaseHelper.cs" />
-    <Compile Include="Views\About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
+    <Compile Include="Views\Storage.aspx.cs">
+      <DependentUpon>Storage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
+    <Compile Include="Views\Storage.aspx.designer.cs">
+      <DependentUpon>Storage.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Views\Contact.aspx.cs">
