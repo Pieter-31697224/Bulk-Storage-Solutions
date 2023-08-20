@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Bulk_Storage_Solutions.DAL.Features.Contracts;
+using Bulk_Storage_Solutions.DAL.SqlDbConnection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace Bulk_Storage_Solutions
         void Application_Start(object sender, EventArgs e)
         {
             var builder = new ContainerBuilder();
+            builder.RegisterType<OpenSqlDbConnection>().As<ISqlDbConnection>().SingleInstance();
             builder.RegisterType<ContractFunctions>().As<IContracts>().SingleInstance();
 
 

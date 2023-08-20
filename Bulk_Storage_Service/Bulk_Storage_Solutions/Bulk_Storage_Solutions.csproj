@@ -188,6 +188,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="DAL\Features\Contracts\ContractFunctions.cs" />
     <Compile Include="DAL\Features\Contracts\IContracts.cs" />
+    <Compile Include="DAL\SqlDbConnection\ISqlDbConnection.cs" />
+    <Compile Include="DAL\SqlDbConnection\OpenSqlDbConnection.cs" />
+    <Compile Include="Models\DTO\ContractDTO.cs" />
     <Compile Include="Views\Storage.aspx.cs">
       <DependentUpon>Storage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
