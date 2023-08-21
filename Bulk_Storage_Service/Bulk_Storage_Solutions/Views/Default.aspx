@@ -5,8 +5,18 @@
     <div>
         
         <br />
-        <asp:Button ID="SearchButton" runat="server" Height="31px" OnClick="SearchButton_Click" Text="Search" class="btn  btn-primary" />
-        <asp:TextBox ID="SearchText" runat="server" Width="528px" CssClass="form-control"></asp:TextBox>
+        <div class="container">
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-xs-3">
+                        <asp:TextBox ID="SearchText" runat="server" Width="800px" CssClass="form-control" placeHolder="Search by Contract ID"></asp:TextBox>
+                    </div>
+                    <div class="col-xs-2">
+                        <asp:Button ID="SearchButton" runat="server" Height="31px" OnClick="SearchButton_Click" Text="Search" class="btn  btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
         <br />
         <br />
         
@@ -33,9 +43,9 @@
                         <label>Contract Status</label>
                         <asp:TextBox runat="server" ID="txtContractStatus" CssClass="form-control" placeholder="Status"/>
                         <label>Contract Start Date</label>
-                        <asp:Calendar runat="server" ID="startDateCal"></asp:Calendar>
+                        <asp:TextBox ID="startDateCal" runat="server" CssClass="form-control" placeholder="Statr Date" type="date"></asp:TextBox>
                         <label>Contract End Date</label>
-                        <asp:Calendar runat="server" ID="endDateCal"></asp:Calendar>
+                        <asp:TextBox ID="endDateCal" runat="server" CssClass="form-control" placeholder="End Date" type="date"></asp:TextBox>
                     </div>
                     <div class="modal-footer">
                         <asp:Button ID="btnSave" runat="server" Height="40px" OnClick="AddContractBtn_Click" Text="Save" class="btn  btn-primary" />

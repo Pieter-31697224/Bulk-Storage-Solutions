@@ -54,8 +54,8 @@ namespace Bulk_Storage_Solutions
                 {
                     ContractDescription = txtContractDesc.Text,
                     ContractStatus = txtContractStatus.Text,
-                    StartDate = startDateCal.SelectedDate,
-                    EndDate = endDateCal.SelectedDate
+                    StartDate = DateTime.Parse(startDateCal.Text),
+                    EndDate = DateTime.Parse(endDateCal.Text)
                 };
 
                 if(contract.StartDate == DateTime.MinValue)

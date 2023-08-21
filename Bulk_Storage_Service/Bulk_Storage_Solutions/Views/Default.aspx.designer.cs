@@ -15,15 +15,6 @@ namespace Bulk_Storage_Solutions
     {
 
         /// <summary>
-        /// SearchButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SearchButton;
-
-        /// <summary>
         /// SearchText control.
         /// </summary>
         /// <remarks>
@@ -31,6 +22,15 @@ namespace Bulk_Storage_Solutions
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox SearchText;
+
+        /// <summary>
+        /// SearchButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button SearchButton;
 
         /// <summary>
         /// CreateContractBtn control.
@@ -75,7 +75,7 @@ namespace Bulk_Storage_Solutions
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar startDateCal;
+        protected global::System.Web.UI.WebControls.TextBox startDateCal;
 
         /// <summary>
         /// endDateCal control.
@@ -84,7 +84,7 @@ namespace Bulk_Storage_Solutions
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar endDateCal;
+        protected global::System.Web.UI.WebControls.TextBox endDateCal;
 
         /// <summary>
         /// btnSave control.
