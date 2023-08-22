@@ -2,6 +2,7 @@
 using Bulk_Storage_Solutions.Models.DTO;
 using System;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace Bulk_Storage_Solutions
 {
@@ -31,10 +32,10 @@ namespace Bulk_Storage_Solutions
         {
             try
             {
-                ContractsGridView.DataSource = _contracts.GetContractById(int.Parse(SearchText.Text));
+                ContractsGridView.DataSource = _contracts.SearchForContract(SearchText.Text);
                 ContractsGridView.DataBind();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -74,6 +75,50 @@ namespace Bulk_Storage_Solutions
             {
                 Console.WriteLine(ex.Message);  
             }
+        }
+
+        protected void EditContractBtn_Click(object sender, EventArgs e)
+        {
+            int contractId = Convert.ToInt32((sender as LinkButton).CommandArgument);
+            var contract = _contracts.GetContractById(contractId);
+            EditContractID.Value = contractId.ToString();
+
+            txtEditDesc.Text = contract.ContractDescription;
+            txtEditStatus.Text = contract.ContractStatus;
+            txtEditStartDate.Text = contract.StartDate.HasValue ? contract.StartDate.Value.ToString("yyyy-MM-dd") : null;
+            txtEditEndDate.Text = contract.EndDate.HasValue ? contract.EndDate.Value.ToString("yyyy-MM-dd") : null;
+
+            ScriptManager.RegisterStartupScript(this, GetType(), "editContractModal", "$('#editContractModal').modal('show');", true);
+        }
+
+        protected void SaveEditContractBtn_Click(object sender, EventArgs e)
+        {
+            int contractId = Convert.ToInt32(EditContractID.Value);
+
+            ContractDTO contract = new ContractDTO
+            {
+                ContractId = contractId,
+                ContractDescription = txtEditDesc.Text,
+                ContractStatus = txtEditStatus.Text,
+                StartDate = DateTime.Parse(txtEditStartDate.Text),
+                EndDate = DateTime.Parse(txtEditEndDate.Text)
+            };
+
+            _contracts.UpdateContract(contract);
+        }
+
+        protected void PopupDeleteContractBtn_Click(object sender, EventArgs e)
+        {
+            int contractId = Convert.ToInt32((sender as LinkButton).CommandArgument);
+            DeleteContractId.Value = contractId.ToString();
+
+            ScriptManager.RegisterStartupScript(this, GetType(), "deleteContractModal", "$('#deleteContractModal').modal('show');", true);
+        }
+
+        protected void DeleteContractBtn_Click(object sender, EventArgs e)
+        {
+            int contractId = Convert.ToInt32(DeleteContractId.Value);
+            _contracts.DeleteContract(contractId);
         }
     }
 }
