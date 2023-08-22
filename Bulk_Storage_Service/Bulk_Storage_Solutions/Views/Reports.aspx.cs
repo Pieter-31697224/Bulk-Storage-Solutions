@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Bulk_Storage_Solutions
+namespace Bulk_Storage_Solutions.Views
 {
-    public partial class Contact : Page
+    public partial class Reports : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

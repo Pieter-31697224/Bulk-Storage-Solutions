@@ -46,14 +46,18 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/Views/Default">Application name</a>
+                    <a class="navbar-brand" runat="server" href="~/Views/Default">Bulk Storage Solutions</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/Views/Default">Home</a></li>
+                        <li><a runat="server" href="~/Views/Client">Clients</a></li>
+                        <li><a runat="server" href="~/Views/Cargo">Cargo</a></li>
                         <li><a runat="server" href="~/Views/Contracts">Contracts</a></li>
                         <li><a runat="server" href="~/Views/Storage">Storage</a></li>
-                        <li><a runat="server" href="~/Views/Contact">Contact</a></li>
+                        <li><a runat="server" href="~/Views/StorageType">Storage Type</a></li>
+                        <li><a runat="server" href="~/Views/ClientStorageAgreement">CSA</a></li>
+                        <li><a runat="server" href="~/Views/Reports">Reports</a></li>
                     </ul>
                 </div>
             </div>
