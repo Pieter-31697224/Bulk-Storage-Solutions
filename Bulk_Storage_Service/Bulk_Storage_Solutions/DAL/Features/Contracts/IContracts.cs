@@ -11,7 +11,10 @@ namespace Bulk_Storage_Solutions.DAL.Features.Contracts
     public interface IContracts
     {
         DataSet GetAllRowsFromContracts();
-        DataSet GetContractById(int contractId);
+        ContractDTO GetContractById(int contractId);
         void CreateNewContract(ContractDTO contract);
+        void UpdateContract(ContractDTO contract);
+        void DeleteContract(int contractId);
+        DataSet SearchForContract(string search);
     }
 }
