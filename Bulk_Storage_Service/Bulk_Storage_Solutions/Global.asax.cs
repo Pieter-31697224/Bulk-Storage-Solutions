@@ -1,14 +1,11 @@
 ﻿using Autofac;
 using Bulk_Storage_Solutions.DAL.Features.Contracts;
+using Bulk_Storage_Solutions.DAL.Features.StorageType;
 using Bulk_Storage_Solutions.DAL.SqlDbConnection;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Optimization;
 using System.Web.Routing;
-using System.Web.Security;
-using System.Web.SessionState;
 
 namespace Bulk_Storage_Solutions
 {
@@ -20,6 +17,7 @@ namespace Bulk_Storage_Solutions
             var builder = new ContainerBuilder();
             builder.RegisterType<OpenSqlDbConnection>().As<ISqlDbConnection>().SingleInstance();
             builder.RegisterType<ContractFunctions>().As<IContracts>().SingleInstance();
+            builder.RegisterType<StorageTypeFunctions>().As<IStorageType>().SingleInstance();
 
 
             _container = builder.Build();
