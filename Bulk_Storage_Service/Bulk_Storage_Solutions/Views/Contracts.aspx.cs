@@ -55,8 +55,8 @@ namespace Bulk_Storage_Solutions
                 {
                     ContractDescription = txtContractDesc.Text,
                     ContractStatus = txtContractStatus.Text,
-                    StartDate = DateTime.Parse(startDateCal.Text),
-                    EndDate = DateTime.Parse(endDateCal.Text)
+                    StartDate = DateTime.TryParse(startDateCal.Text, out DateTime resultStartDate) ? DateTime.Parse(startDateCal.Text) : DateTime.MinValue, 
+                    EndDate = DateTime.TryParse(endDateCal.Text, out DateTime resultEndDate) ? DateTime.Parse(endDateCal.Text) : DateTime.MinValue
                 };
 
                 if(contract.StartDate == DateTime.MinValue)
@@ -70,6 +70,8 @@ namespace Bulk_Storage_Solutions
                 }
 
                 _contracts.CreateNewContract(contract);
+
+                Page_Load(sender, e);
             }
             catch (Exception ex)
             {
@@ -93,18 +95,38 @@ namespace Bulk_Storage_Solutions
 
         protected void SaveEditContractBtn_Click(object sender, EventArgs e)
         {
-            int contractId = Convert.ToInt32(EditContractID.Value);
-
-            ContractDTO contract = new ContractDTO
+            try
             {
-                ContractId = contractId,
-                ContractDescription = txtEditDesc.Text,
-                ContractStatus = txtEditStatus.Text,
-                StartDate = DateTime.Parse(txtEditStartDate.Text),
-                EndDate = DateTime.Parse(txtEditEndDate.Text)
-            };
+                int contractId = Convert.ToInt32(EditContractID.Value);
 
-            _contracts.UpdateContract(contract);
+                ContractDTO contract = new ContractDTO
+                {
+                    ContractId = contractId,
+                    ContractDescription = txtEditDesc.Text,
+                    ContractStatus = txtEditStatus.Text,
+                    StartDate = DateTime.TryParse(startDateCal.Text, out DateTime resultStartDate) ? DateTime.Parse(startDateCal.Text) : DateTime.MinValue,
+                    EndDate = DateTime.TryParse(endDateCal.Text, out DateTime resultEndDate) ? DateTime.Parse(endDateCal.Text) : DateTime.MinValue
+                };
+
+                if (contract.StartDate == DateTime.MinValue)
+                {
+                    contract.StartDate = null;
+                }
+
+                if (contract.EndDate == DateTime.MinValue)
+                {
+                    contract.EndDate = null;
+                }
+
+                _contracts.UpdateContract(contract);
+
+                Page_Load(sender, e);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                throw new Exception();
+            }
         }
 
         protected void PopupDeleteContractBtn_Click(object sender, EventArgs e)
@@ -117,8 +139,18 @@ namespace Bulk_Storage_Solutions
 
         protected void DeleteContractBtn_Click(object sender, EventArgs e)
         {
-            int contractId = Convert.ToInt32(DeleteContractId.Value);
-            _contracts.DeleteContract(contractId);
+            try
+            {
+                int contractId = Convert.ToInt32(DeleteContractId.Value);
+                _contracts.DeleteContract(contractId);
+
+                Page_Load(sender, e);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex?.ToString());
+                throw new Exception();
+            }
         }
     }
 }

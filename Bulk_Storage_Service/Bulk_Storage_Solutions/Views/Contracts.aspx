@@ -60,7 +60,7 @@
                         <asp:TextBox ID="endDateCal" runat="server" CssClass="form-control" placeholder="End Date" type="date"></asp:TextBox>
                     </div>
                     <div class="modal-footer">
-                        <asp:Button ID="btnSave" runat="server" Height="40px" OnClick="AddContractBtn_Click" Text="Save" class="btn  btn-primary" />
+                        <asp:Button ID="btnSave" runat="server" Height="40px" OnClick="AddContractBtn_Click" Text="Save" class="btn  btn-primary"/>
                         <asp:Button ID="btnClose" runat="server" Height="40px" data-dismiss="modal" Text="Cancel" class="btn  btn-secondary" />
                     </div>
                 </div>

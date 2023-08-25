@@ -81,6 +81,8 @@ namespace Bulk_Storage_Solutions.Views
                 };
 
                 _storageType.CreateStorageType(storageType);
+
+                Page_Load(sender, e);
             }
             catch (Exception ex)
             {
@@ -102,6 +104,8 @@ namespace Bulk_Storage_Solutions.Views
                 };
 
                 _storageType.UpdateStorageType(storageType);
+
+                Page_Load(sender, e);
             }
             catch(Exception ex)
             {
@@ -115,6 +119,8 @@ namespace Bulk_Storage_Solutions.Views
             {
                 int storageTypeId = Convert.ToInt32(DeleteStorageTypeId.Value);
                 _storageType.DeleteStorageType(storageTypeId);
+
+                Page_Load(sender, e);
             }
             catch(Exception ex)
             {
