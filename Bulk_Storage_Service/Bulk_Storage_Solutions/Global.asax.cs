@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Bulk_Storage_Solutions.DAL.Features.ClientStorageAgreement;
 using Bulk_Storage_Solutions.DAL.Features.Contracts;
 using Bulk_Storage_Solutions.DAL.Features.StorageType;
 using Bulk_Storage_Solutions.DAL.SqlDbConnection;
@@ -18,6 +19,7 @@ namespace Bulk_Storage_Solutions
             builder.RegisterType<OpenSqlDbConnection>().As<ISqlDbConnection>().SingleInstance();
             builder.RegisterType<ContractFunctions>().As<IContracts>().SingleInstance();
             builder.RegisterType<StorageTypeFunctions>().As<IStorageType>().SingleInstance();
+            builder.RegisterType<ClientStorageAgreementFunctions>().As<IClientStorageAgreement>().SingleInstance();
 
 
             _container = builder.Build();
