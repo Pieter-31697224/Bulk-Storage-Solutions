@@ -4,6 +4,7 @@ using Bulk_Storage_Solutions.DAL.Features.StorageType;
 using Bulk_Storage_Solutions.Models.DTO;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -38,7 +39,15 @@ namespace Bulk_Storage_Solutions
 
         protected void SearchButton_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                StorageGridView.DataSource = _storage.SearchForStorage(SearchText.Text);
+                StorageGridView.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         protected void CreateStorageBtn_Click(object sender, EventArgs e)

@@ -35,6 +35,26 @@ namespace Bulk_Storage_Solutions.DAL.Features.Storage
             }
             
         }
-            
+
+        public DataSet SearchForStorage(string search)
+        {
+            try
+            {
+                var connection = _db.OpenDbConnection();
+                SqlCommand cmd = new SqlCommand("SearchStorage", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SearchValue",search);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                connection.Close();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw new Exception();
+            }
+        }
     }
 }
