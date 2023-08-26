@@ -1,8 +1,111 @@
-﻿<%@ Page Title="AbSSSSout" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Storage.aspx.cs" Inherits="Bulk_Storage_Solutions.About" %>
+﻿<%@ Page Title="Storage" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Storage.aspx.cs" Inherits="Bulk_Storage_Solutions.Storage" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>.</h2>
-    <h3> Tis is just a change to push to github</h3>
-    <h3>Your application description page.</h3>
-    <p>Use this area to provide additional information.</p>
+
+    <div>
+        
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-xs-3">
+                        <asp:TextBox ID="SearchText" runat="server" Width="800px" CssClass="form-control" placeHolder="Search"></asp:TextBox>
+                    </div>
+                    <div class="col-xs-2">
+                        <asp:Button ID="SearchButton" runat="server" Height="31px" OnClick="SearchButton_Click" Text="Search" class="btn  btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        
+        <asp:Button ID="CreateStorageBtn" runat="server" Height="40px" OnClick="CreateStorageBtn_Click" Text="Add New" class="btn  btn-primary" />
+        <br />
+        <br />
+
+        <asp:GridView ID="StorageGridView" runat="server" Height="211px" Width="1200px" CssClass="table table-striped table-responsive table-bordered" AutoGenerateColumns="false">
+            <Columns>
+                <asp:BoundField DataField="Storage_Type_Id" HeaderText="Storage ID"/>
+                <asp:BoundField DataField="Storage_Status" HeaderText="Status"/>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:LinkButton ID="editLink" runat="server" Text="Edit" CssClass="btn btn-primary" CommandArgument='<%# Eval("Storage_Id") %>' OnClick="EditStorageBtn_Click"></asp:LinkButton>
+                        <asp:LinkButton ID="deleteLink" runat="server" Text="Delete" CssClass="btn btn-danger" CommandArgument='<%# Eval("Storage_Id") %>' OnClick="PopupDeleteStorageBtn_Click"></asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+        </asp:GridView>
+        
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="createStorageModal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Create New Storage</h4>
+                        <button type="button"class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <label>Storage Description</label>
+                        <asp:TextBox runat="server" ID="txtStorage_Type_Id" CssClass="form-control" placeholder="Storage Type"/>  
+                        <label>Storage Status</label>
+                        <asp:TextBox runat="server" ID="txtStorageStatus" CssClass="form-control" placeholder="Status"/>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="btnSave" runat="server" Height="40px" OnClick="AddStorageBtn_Click" Text="Save" class="btn  btn-primary"/>
+                        <asp:Button ID="btnClose" runat="server" Height="40px" data-dismiss="modal" Text="Cancel" class="btn  btn-secondary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="editStorageModal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Edit Storage</h4>
+                        <button type="button"class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <asp:HiddenField runat="server" ID="EditStorageID" />
+                        <label>Storage Description</label>
+                        <asp:TextBox runat="server" ID="txtEditDesc" CssClass="form-control"/>  
+                        <label>Storage Status</label>
+                        <asp:TextBox runat="server" ID="txtEditStatus" CssClass="form-control"/>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="saveEditBtn" runat="server" Height="40px" OnClick="SaveEditStorageBtn_Click" Text="Save" class="btn  btn-primary" />
+                        <asp:Button ID="cancelBtn" runat="server" Height="40px" data-dismiss="modal" Text="Cancel" class="btn  btn-secondary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="deleteStorageModal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Delete Storage</h4>
+                        <button type="button"class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <asp:HiddenField runat="server" ID="DeleteStorageId" />
+                        <label>Are you sure you want to delete this contract?</label>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="btnDeleteStorage" runat="server" Height="40px" OnClick="DeleteStorageBtn_Click" Text="Delete" class="btn  btn-danger" />
+                        <asp:Button ID="btnCancelDelete" runat="server" Height="40px" data-dismiss="modal" Text="Cancel" class="btn  btn-secondary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </asp:Content>
+
