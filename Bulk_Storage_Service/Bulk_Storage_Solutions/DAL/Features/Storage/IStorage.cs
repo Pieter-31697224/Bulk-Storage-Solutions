@@ -10,5 +10,6 @@ namespace Bulk_Storage_Solutions.DAL.Features.Storage
     public interface IStorage
     {
         DataSet GetAllStorage();
+        DataSet SearchForStorage(string search);
     }
 }

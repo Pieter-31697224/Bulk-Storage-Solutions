@@ -26,8 +26,9 @@
 
         <asp:GridView ID="StorageGridView" runat="server" Height="211px" Width="1200px" CssClass="table table-striped table-responsive table-bordered" AutoGenerateColumns="false">
             <Columns>
-                <asp:BoundField DataField="Storage_Type_Id" HeaderText="Storage ID"/>
-                <asp:BoundField DataField="Storage_Status" HeaderText="Status"/>
+                <asp:BoundField DataField="Storage_Desc" HeaderText="Description"/>
+                <asp:BoundField DataField="Unit_Number" HeaderText="Unit Number"/>
+                <asp:BoundField DataField="Status" HeaderText="Status"/>
                 <asp:TemplateField>
                     <ItemTemplate>
                         <asp:LinkButton ID="editLink" runat="server" Text="Edit" CssClass="btn btn-primary" CommandArgument='<%# Eval("Storage_Id") %>' OnClick="EditStorageBtn_Click"></asp:LinkButton>
