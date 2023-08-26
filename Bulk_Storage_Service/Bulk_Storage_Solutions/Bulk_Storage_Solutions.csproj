@@ -191,6 +191,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="DAL\Features\ClientStorageAgreement\ClientStorageAgreementFunctions.cs" />
+    <Compile Include="DAL\Features\ClientStorageAgreement\IClientStorageAgreement.cs" />
     <Compile Include="DAL\Features\Contracts\ContractFunctions.cs" />
     <Compile Include="DAL\Features\Contracts\IContracts.cs" />
     <Compile Include="DAL\Features\StorageType\IStorageType.cs" />
@@ -199,8 +201,13 @@
     <Compile Include="DAL\Features\Storage\StorageFunctions.cs" />
     <Compile Include="DAL\SqlDbConnection\ISqlDbConnection.cs" />
     <Compile Include="DAL\SqlDbConnection\OpenSqlDbConnection.cs" />
+    <Compile Include="Models\DTO\ClientStorageAgreementDTO.cs" />
     <Compile Include="Models\DTO\ContractDTO.cs" />
     <Compile Include="Models\DTO\StorageTypeDTO.cs" />
+    <Compile Include="Models\Persistent\Cargo.cs" />
+    <Compile Include="Models\Persistent\Client.cs" />
+    <Compile Include="Models\Persistent\Contract.cs" />
+    <Compile Include="Models\Persistent\Storage.cs" />
     <Compile Include="Views\Cargo.aspx.cs">
       <DependentUpon>Cargo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
