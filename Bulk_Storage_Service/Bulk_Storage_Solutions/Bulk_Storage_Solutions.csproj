@@ -197,6 +197,8 @@
     <Compile Include="DAL\Features\Contracts\IContracts.cs" />
     <Compile Include="DAL\Features\StorageType\IStorageType.cs" />
     <Compile Include="DAL\Features\StorageType\StorageTypeFunctions.cs" />
+    <Compile Include="DAL\Features\Storage\IStorage.cs" />
+    <Compile Include="DAL\Features\Storage\StorageFunctions.cs" />
     <Compile Include="DAL\SqlDbConnection\ISqlDbConnection.cs" />
     <Compile Include="DAL\SqlDbConnection\OpenSqlDbConnection.cs" />
     <Compile Include="Models\DTO\ClientStorageAgreementDTO.cs" />
