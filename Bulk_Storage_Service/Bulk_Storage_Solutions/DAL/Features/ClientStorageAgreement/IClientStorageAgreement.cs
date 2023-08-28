@@ -17,7 +17,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.ClientStorageAgreement
         List<Client> GetAllClientsForDropDownList();
         List<Cargo> GetAllCargoForDropDownList();
         List<Contract> GetAllContractsForDropDownList();
-        List<Storage> GetAllStorageForDropDownList();
+        List<Models.Persistent.Storage> GetAllStorageForDropDownList();
         void CreateClientStorageAgreement(ClientStorageAgreementDTO clientAgreement);
         void DeleteClientStorageAgreement(int clientStorageAgreementId);
     }

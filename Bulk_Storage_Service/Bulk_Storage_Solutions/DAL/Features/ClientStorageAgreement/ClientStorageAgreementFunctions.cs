@@ -199,11 +199,11 @@ namespace Bulk_Storage_Solutions.DAL.Features.ClientStorageAgreement
             }
         }
 
-        public List<Storage> GetAllStorageForDropDownList()
+        public List<Models.Persistent.Storage> GetAllStorageForDropDownList()
         {
             try
             {
-                List<Storage> storageList = new List<Storage>();
+                List<Models.Persistent.Storage> storageList = new List<Models.Persistent.Storage>();
                 var connection = _db.OpenDbConnection();
                 SqlCommand cmd = new SqlCommand("GetAllStorageForClientStorageAgreement", connection);
 
@@ -213,7 +213,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.ClientStorageAgreement
 
                 while (reader.Read())
                 {
-                    Storage client = new Storage
+                    Models.Persistent.Storage client = new Models.Persistent.Storage
                     {
                         StorageId = Convert.ToInt32(reader["Storage_Id"]),
                         StorageUnitNumber = reader["Storage_Unit_Number"].ToString()
