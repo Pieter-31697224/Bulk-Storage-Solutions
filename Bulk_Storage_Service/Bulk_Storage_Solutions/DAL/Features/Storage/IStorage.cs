@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bulk_Storage_Solutions.Models.DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -11,5 +12,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.Storage
     {
         DataSet GetAllStorage();
         DataSet SearchForStorage(string search);
+        StorageDTO GetStorageById(int storageId); 
+        void DeleteStorage(int storageId);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Bulk_Storage_Solutions.DAL.SqlDbConnection;
+using Bulk_Storage_Solutions.Models.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -17,7 +18,26 @@ namespace Bulk_Storage_Solutions.DAL.Features.Storage
             _db = db;
         }
 
-        public DataSet GetAllStorage()
+        public void DeleteStorage(int storageId)
+        {
+            try
+            {
+                var connection = _db.OpenDbConnection();
+                SqlCommand cmd = new SqlCommand("DeleteStorage", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@storageId", SqlDbType.Int).Value = storageId;
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw new Exception();
+
+            }
+        }
+
+            public DataSet GetAllStorage()
         {
             try
             {
@@ -34,6 +54,34 @@ namespace Bulk_Storage_Solutions.DAL.Features.Storage
                 throw new Exception();
             }
             
+        }
+
+        public StorageDTO GetStorageById(int storageId)
+        {
+            try
+            {
+                StorageDTO storage = new StorageDTO();
+                var connection = _db.OpenDbConnection();
+                SqlCommand cmd = new SqlCommand("GetStorageById", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@storageId", SqlDbType.Int).Value = storageId;
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read()) 
+                {
+                    storage = new StorageDTO
+                    {
+                        storageDescription = reader["StorageDescription"].ToString(),
+                        storageStatus = reader["StorageStatus"].ToString()
+                    };
+                }
+                connection.Close();
+                return storage;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw new Exception();
+            }
         }
 
         public DataSet SearchForStorage(string search)

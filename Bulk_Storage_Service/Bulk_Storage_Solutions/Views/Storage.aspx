@@ -97,7 +97,7 @@
                     </div>
                     <div class="modal-body">
                         <asp:HiddenField runat="server" ID="DeleteStorageId" />
-                        <label>Are you sure you want to delete this contract?</label>
+                        <label>Are you sure you want to delete this storage?</label>
                     </div>
                     <div class="modal-footer">
                         <asp:Button ID="btnDeleteStorage" runat="server" Height="40px" OnClick="DeleteStorageBtn_Click" Text="Delete" class="btn  btn-danger" />
