@@ -1,6 +1,8 @@
 ﻿using Bulk_Storage_Solutions.DAL.Features.Contracts;
 using Bulk_Storage_Solutions.DAL.SqlDbConnection;
+using Bulk_Storage_Solutions.Exceptions;
 using Bulk_Storage_Solutions.Models.DTO;
+using Bulk_Storage_Solutions.Views;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,6 +10,7 @@ using System.Data.SqlClient;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Web;
+using System.Web.WebSockets;
 
 namespace Bulk_Storage_Solutions.DAL.Features.StorageType
 {
@@ -38,8 +41,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.StorageType
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new BadRequestException($"Could not create storage type. ({ex.Message})");
             }
         }
 
@@ -60,8 +62,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.StorageType
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new BadRequestException($"Could not delete storage type {storageTpeId}. ({ex.Message})");
             }
         }
 
@@ -81,8 +82,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.StorageType
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new NotFoundException(nameof(StorageType), ex.Message);
             }
         }
 
@@ -116,8 +116,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.StorageType
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new NotFoundException(nameof(StorageType), storageTypeId);
             }
         }
 
@@ -141,8 +140,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.StorageType
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new NotFoundException(nameof(StorageType), searchValue);
             };
         }
 
@@ -165,8 +163,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.StorageType
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new BadRequestException($"Could not update storage type {storageType.StorageTypeId}. ({ex.Message})");
             }
         }
     }

@@ -32,7 +32,6 @@ namespace Bulk_Storage_Solutions
             catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                throw new Exception();
             }
         }
 
@@ -46,7 +45,6 @@ namespace Bulk_Storage_Solutions
             catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                throw new Exception();
             }
         }
 
@@ -83,7 +81,6 @@ namespace Bulk_Storage_Solutions
             catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                throw new Exception();
             }
         }
         protected void DeleteCSABtn_Click(object Sender, EventArgs e)
@@ -98,7 +95,6 @@ namespace Bulk_Storage_Solutions
             catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                throw new Exception();
             }
         }
 
