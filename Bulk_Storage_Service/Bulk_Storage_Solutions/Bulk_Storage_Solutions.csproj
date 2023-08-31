@@ -206,6 +206,7 @@
     <Compile Include="Exceptions\NotFoundException.cs" />
     <Compile Include="Models\DTO\ClientStorageAgreementDTO.cs" />
     <Compile Include="Models\DTO\ContractDTO.cs" />
+    <Compile Include="Models\DTO\StorageDTO.cs" />
     <Compile Include="Models\DTO\StorageTypeDTO.cs" />
     <Compile Include="Models\Persistent\Cargo.cs" />
     <Compile Include="Models\Persistent\Client.cs" />
