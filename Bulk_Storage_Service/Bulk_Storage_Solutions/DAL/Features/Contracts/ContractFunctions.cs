@@ -1,4 +1,5 @@
 ﻿using Bulk_Storage_Solutions.DAL.SqlDbConnection;
+using Bulk_Storage_Solutions.Exceptions;
 using Bulk_Storage_Solutions.Models.DTO;
 using System;
 using System.Data;
@@ -30,8 +31,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.Contracts
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new NotFoundException(nameof(Contracts), ex.Message);
             }
 
         }
@@ -56,8 +56,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.Contracts
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new NotFoundException(nameof(Contracts), search);
             }
         }
 
@@ -81,8 +80,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.Contracts
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new BadRequestException($"Could not create new Contract. {ex.Message}");
             }
         }
 
@@ -118,8 +116,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.Contracts
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new NotFoundException(nameof(Contracts), contractId);
             }
         }
 
@@ -143,8 +140,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.Contracts
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new BadRequestException($"Could not update Contract {contract.ContractId}. ({ex.Message})");
             }
         }
 
@@ -165,8 +161,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.Contracts
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new BadRequestException($"Could not delete Contract {contractId}. ({ex.Message})");
             }
         }
     }
