@@ -1,11 +1,10 @@
 ﻿using Bulk_Storage_Solutions.DAL.SqlDbConnection;
+using Bulk_Storage_Solutions.Exceptions;
 using Bulk_Storage_Solutions.Models.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 
 namespace Bulk_Storage_Solutions.DAL.Features.Storage
 {
@@ -16,6 +15,28 @@ namespace Bulk_Storage_Solutions.DAL.Features.Storage
         public StorageFunctions(ISqlDbConnection db)
         {
             _db = db;
+        }
+
+        public void CreateStorage(StorageDTO storage)
+        {
+            try
+            {
+                var connection = _db.OpenDbConnection();
+                SqlCommand cmd = new SqlCommand("CreateStorage", connection);
+
+                cmd.CommandType= CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@storageStatus", SqlDbType.VarChar).Value = storage.storageStatus;
+                cmd.Parameters.Add("@storageTypeId", SqlDbType.Int).Value = storage.storageTypeId;
+
+                cmd.ExecuteNonQuery();
+
+                connection.Close();
+            }
+            catch(Exception ex)
+            {
+                throw new BadRequestException($"Could not create storage. ({ex.Message})");
+            }
         }
 
         public void DeleteStorage(int storageId)
@@ -31,13 +52,11 @@ namespace Bulk_Storage_Solutions.DAL.Features.Storage
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
-
+                throw new BadRequestException($"Could not delete storage ({storageId}). ({ex.Message})");
             }
         }
 
-            public DataSet GetAllStorage()
+        public DataSet GetAllStorage()
         {
             try
             {
@@ -50,10 +69,41 @@ namespace Bulk_Storage_Solutions.DAL.Features.Storage
             }
             catch(Exception ex) 
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new NotFoundException(nameof(Storage), ex.Message);
             }
             
+        }
+
+        public List<Models.Persistent.StorageType> GetAllStorageTypesForDropDownList()
+        {
+            try
+            {
+                List<Models.Persistent.StorageType> storageTypeList = new List<Models.Persistent.StorageType>();
+                var connection = _db.OpenDbConnection();
+                SqlCommand cmd = new SqlCommand("GetAllStorageTypesForDropDownList", connection);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Models.Persistent.StorageType storageType = new Models.Persistent.StorageType
+                    {
+                        StorageTypeDesc = reader["Storage_Type_Desc"].ToString(),
+                        StorageTypeId = Convert.ToInt32(reader["Storage_Type_Id"])
+
+                    };
+
+                    storageTypeList.Add(storageType);
+                }
+
+                return storageTypeList;
+            }
+            catch(Exception ex)
+            {
+                throw new NotFoundException(nameof(Storage), ex.Message);
+            }
         }
 
         public StorageDTO GetStorageById(int storageId)
@@ -71,7 +121,8 @@ namespace Bulk_Storage_Solutions.DAL.Features.Storage
                     storage = new StorageDTO
                     {
                         storageDescription = reader["StorageDescription"].ToString(),
-                        storageStatus = reader["StorageStatus"].ToString()
+                        storageStatus = reader["StorageStatus"].ToString(),
+                        storageTypeId = Convert.ToInt32(reader["StorageTypeId"])
                     };
                 }
                 connection.Close();
@@ -79,8 +130,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.Storage
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new NotFoundException(nameof(Storage), storageId);
             }
         }
 
@@ -100,8 +150,30 @@ namespace Bulk_Storage_Solutions.DAL.Features.Storage
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new NotFoundException(nameof(Storage), search);
+            }
+        }
+
+        public void UpdateStorage(StorageDTO storage)
+        {
+            try
+            {
+                var connection = _db.OpenDbConnection();
+                SqlCommand cmd = new SqlCommand("UpdateStorage", connection);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@storageId", SqlDbType.Int).Value = storage.storageId;
+                cmd.Parameters.Add("@storageStatus", SqlDbType.VarChar).Value = storage.storageStatus;
+                cmd.Parameters.Add("@storageTypeId", SqlDbType.Int).Value = storage.storageTypeId;
+
+                cmd.ExecuteNonQuery();
+
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new BadRequestException($"Could not update storage ({storage.storageId}). ({ex.Message})");
             }
         }
     }

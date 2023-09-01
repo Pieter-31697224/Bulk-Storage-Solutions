@@ -49,10 +49,10 @@
                         <button type="button"class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <label>Storage Description</label>
-                        <asp:TextBox runat="server" ID="txtStorage_Type_Id" CssClass="form-control" placeholder="Storage Type"/>  
+                        <label>Storage Description</label>  
+                        <asp:DropDownList runat="server" ID="StorageDropDownList" CssClass="form-control" placeholder="Storage Type" AutoPostBack="false"></asp:DropDownList>
                         <label>Storage Status</label>
-                        <asp:TextBox runat="server" ID="txtStorageStatus" CssClass="form-control" placeholder="Status"/>
+                        <asp:DropDownList runat="server" ID="StorageStatusDropDownList" CssClass="form-control" placeholder="Status" AutoPostBack="false"></asp:DropDownList>
                     </div>
                     <div class="modal-footer">
                         <asp:Button ID="btnSave" runat="server" Height="40px" OnClick="AddStorageBtn_Click" Text="Save" class="btn  btn-primary"/>
@@ -74,9 +74,9 @@
                     <div class="modal-body">
                         <asp:HiddenField runat="server" ID="EditStorageID" />
                         <label>Storage Description</label>
-                        <asp:TextBox runat="server" ID="txtEditDesc" CssClass="form-control"/>  
+                        <asp:DropDownList runat="server" ID="EditStorageDropDownList" CssClass="form-control" placeholder="Storage Type" AutoPostBack="false"></asp:DropDownList>  
                         <label>Storage Status</label>
-                        <asp:TextBox runat="server" ID="txtEditStatus" CssClass="form-control"/>
+                        <asp:DropDownList runat="server" ID="EditStorageStatusDropDownList" CssClass="form-control" placeholder="Storage Type" AutoPostBack="false"></asp:DropDownList>
                     </div>
                     <div class="modal-footer">
                         <asp:Button ID="saveEditBtn" runat="server" Height="40px" OnClick="SaveEditStorageBtn_Click" Text="Save" class="btn  btn-primary" />

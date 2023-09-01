@@ -14,5 +14,8 @@ namespace Bulk_Storage_Solutions.DAL.Features.Storage
         DataSet SearchForStorage(string search);
         StorageDTO GetStorageById(int storageId); 
         void DeleteStorage(int storageId);
+        List<Models.Persistent.StorageType> GetAllStorageTypesForDropDownList();
+        void CreateStorage(StorageDTO storage);
+        void UpdateStorage(StorageDTO storage);
     }
 }

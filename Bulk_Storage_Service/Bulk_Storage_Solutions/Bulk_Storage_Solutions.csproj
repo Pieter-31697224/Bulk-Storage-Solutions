@@ -202,6 +202,7 @@
     <Compile Include="DAL\Features\Storage\StorageFunctions.cs" />
     <Compile Include="DAL\SqlDbConnection\ISqlDbConnection.cs" />
     <Compile Include="DAL\SqlDbConnection\OpenSqlDbConnection.cs" />
+    <Compile Include="Enums\enums.cs" />
     <Compile Include="Exceptions\BadRequestException.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
     <Compile Include="Models\DTO\ClientStorageAgreementDTO.cs" />
@@ -212,6 +213,7 @@
     <Compile Include="Models\Persistent\Client.cs" />
     <Compile Include="Models\Persistent\Contract.cs" />
     <Compile Include="Models\Persistent\Storage.cs" />
+    <Compile Include="Models\Persistent\StorageType.cs" />
     <Compile Include="Views\Cargo.aspx.cs">
       <DependentUpon>Cargo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
