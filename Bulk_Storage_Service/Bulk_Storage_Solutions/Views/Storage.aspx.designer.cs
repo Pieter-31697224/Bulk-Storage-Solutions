@@ -51,22 +51,22 @@ namespace Bulk_Storage_Solutions
         protected global::System.Web.UI.WebControls.GridView StorageGridView;
 
         /// <summary>
-        /// txtStorage_Type_Id control.
+        /// StorageDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStorage_Type_Id;
+        protected global::System.Web.UI.WebControls.DropDownList StorageDropDownList;
 
         /// <summary>
-        /// txtStorageStatus control.
+        /// StorageStatusDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStorageStatus;
+        protected global::System.Web.UI.WebControls.DropDownList StorageStatusDropDownList;
 
         /// <summary>
         /// btnSave control.
@@ -96,22 +96,22 @@ namespace Bulk_Storage_Solutions
         protected global::System.Web.UI.WebControls.HiddenField EditStorageID;
 
         /// <summary>
-        /// txtEditDesc control.
+        /// EditStorageDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEditDesc;
+        protected global::System.Web.UI.WebControls.DropDownList EditStorageDropDownList;
 
         /// <summary>
-        /// txtEditStatus control.
+        /// EditStorageStatusDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEditStatus;
+        protected global::System.Web.UI.WebControls.DropDownList EditStorageStatusDropDownList;
 
         /// <summary>
         /// saveEditBtn control.

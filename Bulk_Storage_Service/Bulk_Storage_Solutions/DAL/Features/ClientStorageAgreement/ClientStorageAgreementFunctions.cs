@@ -1,4 +1,5 @@
 ﻿using Bulk_Storage_Solutions.DAL.SqlDbConnection;
+using Bulk_Storage_Solutions.Exceptions;
 using Bulk_Storage_Solutions.Models.DTO;
 using Bulk_Storage_Solutions.Models.Persistent;
 using System;
@@ -34,8 +35,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.ClientStorageAgreement
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new NotFoundException(nameof(ClientStorageAgreement), ex.Message);
             }
         }
 
@@ -59,8 +59,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.ClientStorageAgreement
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new NotFoundException(nameof(ClientStorageAgreement), search);
             }
         }
 
@@ -98,8 +97,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.ClientStorageAgreement
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message); 
-                throw new Exception();
+                throw new NotFoundException(nameof(ClientStorageAgreement), clientStorageAgreementId);
             }
         }
 
@@ -130,8 +128,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.ClientStorageAgreement
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new BadRequestException($"Could not get any clients for drop down list. ({ex.Message})");
             }
         }
 
@@ -162,8 +159,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.ClientStorageAgreement
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new BadRequestException($"Could not get any cargo for drop down list. ({ex.Message})");
             }
         }
 
@@ -194,8 +190,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.ClientStorageAgreement
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new BadRequestException($"Could not get any contracts for drop down list. ({ex.Message})");
             }
         }
 
@@ -226,8 +221,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.ClientStorageAgreement
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new BadRequestException($"Could not get any storage for drop down list. ({ex.Message})");
             }
         }
 
@@ -251,8 +245,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.ClientStorageAgreement
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new BadRequestException($"Could not create new client storage agreement. ({ex.Message})");
             }
         }
 
@@ -273,8 +266,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.ClientStorageAgreement
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new BadRequestException($"Could not delete client storage agreement {clientStorageAgreementId}. ({ex.Message})");
             }
         }
     }
