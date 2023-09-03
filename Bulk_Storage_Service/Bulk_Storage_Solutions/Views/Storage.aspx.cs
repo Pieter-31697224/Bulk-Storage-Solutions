@@ -19,22 +19,29 @@ namespace Bulk_Storage_Solutions
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+            if (!User.Identity.IsAuthenticated)
             {
-                StorageGridView.DataSource = _storage.GetAllStorage();
-                StorageGridView.DataBind();
-
-                if(!IsPostBack)
-                {
-                    FillStorageTypeDropDownList();
-                    FillStorageTypeDropDownListForEdit();
-                    FillStorageStatusDropDownList();
-                    FillStorageStatusDropDownListForEdit();
-                }
+                Response.Redirect("~/Views/Login.aspx");
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine(ex.Message);
+                try
+                {
+                    StorageGridView.DataSource = _storage.GetAllStorage();
+                    StorageGridView.DataBind();
+
+                    if (!IsPostBack)
+                    {
+                        FillStorageTypeDropDownList();
+                        FillStorageTypeDropDownListForEdit();
+                        FillStorageStatusDropDownList();
+                        FillStorageStatusDropDownListForEdit();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
 
         }

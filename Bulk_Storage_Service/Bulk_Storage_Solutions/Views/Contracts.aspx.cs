@@ -17,14 +17,21 @@ namespace Bulk_Storage_Solutions
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+            if (!User.Identity.IsAuthenticated)
             {
-                ContractsGridView.DataSource = _contracts.GetAllRowsFromContracts();
-                ContractsGridView.DataBind();
+                Response.Redirect("~/Views/Login.aspx");
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine(ex.Message);
+                try
+                {
+                    ContractsGridView.DataSource = _contracts.GetAllRowsFromContracts();
+                    ContractsGridView.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
         }
 

@@ -11,6 +11,7 @@ using System;
 using System.Web;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Bulk_Storage_Solutions.DAL.Features.LoginValidation;
 
 namespace Bulk_Storage_Solutions
 {
@@ -28,6 +29,7 @@ namespace Bulk_Storage_Solutions
             builder.RegisterType<ClientStorageAgreementFunctions>().As<IClientStorageAgreement>().SingleInstance();
             builder.RegisterType<ReportingFunctions>().As<IReports>().SingleInstance();
             builder.RegisterType<ClientFunctionality>().As<IClient>().SingleInstance();
+            builder.RegisterType<ValidateUserFunction>().As<IValidation>().SingleInstance();
 
              _container = builder.Build();
             // Code that runs on application startup

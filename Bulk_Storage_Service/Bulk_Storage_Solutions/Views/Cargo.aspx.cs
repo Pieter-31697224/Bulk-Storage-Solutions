@@ -17,15 +17,22 @@ namespace Bulk_Storage_Solutions
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+            if (!User.Identity.IsAuthenticated)
             {
-                CargoGridView.DataSource = _cargo.GetAllRowsFromCargo();
-                CargoGridView.DataBind();
+                Response.Redirect("~/Views/Login.aspx");
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                try
+                {
+                    CargoGridView.DataSource = _cargo.GetAllRowsFromCargo();
+                    CargoGridView.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    throw new Exception();
+                }
             }
         }
 

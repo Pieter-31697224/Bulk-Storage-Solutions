@@ -22,16 +22,23 @@ namespace Bulk_Storage_Solutions.Views
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!User.Identity.IsAuthenticated)
             {
-                BindClientChartData(1, string.Empty, string.Empty);
-                FillChartDropDownListForClientChart();
+                Response.Redirect("~/Views/Login.aspx");
+            }
+            else
+            {
+                if (!IsPostBack)
+                {
+                    BindClientChartData(1, string.Empty, string.Empty);
+                    FillChartDropDownListForClientChart();
 
-                FillStorageTypeChartDropDownList();
-                BindStorageTypeChart(1);
+                    FillStorageTypeChartDropDownList();
+                    BindStorageTypeChart(1);
 
-                FillStorageStatusChartDropDownList();
-                BindStorageStatusChart(1);
+                    FillStorageStatusChartDropDownList();
+                    BindStorageStatusChart(1);
+                }
             }
         }
 
