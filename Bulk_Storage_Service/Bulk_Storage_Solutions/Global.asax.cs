@@ -7,6 +7,7 @@ using Bulk_Storage_Solutions.DAL.Features.Storage;
 using Bulk_Storage_Solutions.DAL.Features.StorageType;
 using Bulk_Storage_Solutions.DAL.Features.Users;
 using Bulk_Storage_Solutions.DAL.SqlDbConnection;
+using Bulk_Storage_Solutions.DAL.Features.IClients;
 using System;
 using System.Web;
 using System.Web.Optimization;
@@ -28,8 +29,9 @@ namespace Bulk_Storage_Solutions
             builder.RegisterType<ClientStorageAgreementFunctions>().As<IClientStorageAgreement>().SingleInstance();
             builder.RegisterType<ReportingFunctions>().As<IReports>().SingleInstance();
             builder.RegisterType<UserFunctions>().As<IUser>().SingleInstance();
+            builder.RegisterType<ClientFunctionality>().As<IClient>().SingleInstance();
 
-            _container = builder.Build();
+             _container = builder.Build();
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

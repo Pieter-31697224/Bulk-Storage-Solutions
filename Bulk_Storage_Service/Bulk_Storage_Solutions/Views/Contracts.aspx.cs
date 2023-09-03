@@ -79,7 +79,7 @@ namespace Bulk_Storage_Solutions
             }
         }
 
-        protected void EditContractBtn_Click(object sender, EventArgs e)
+        protected void EditContractBtn_Click(object sender, EventArgs e) 
         {
             int contractId = Convert.ToInt32((sender as LinkButton).CommandArgument);
             var contract = _contracts.GetContractById(contractId);

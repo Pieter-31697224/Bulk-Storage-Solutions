@@ -203,6 +203,8 @@
     <Compile Include="DAL\Features\Contracts\IContracts.cs" />
     <Compile Include="DAL\Features\Reports\IReports.cs" />
     <Compile Include="DAL\Features\Reports\ReportingFunctions.cs" />
+    <Compile Include="DAL\Features\IClients\ClientFunctionality.cs" />
+    <Compile Include="DAL\Features\IClients\IClient.cs" />
     <Compile Include="DAL\Features\StorageType\IStorageType.cs" />
     <Compile Include="DAL\Features\StorageType\StorageTypeFunctions.cs" />
     <Compile Include="DAL\Features\Storage\IStorage.cs" />
@@ -230,6 +232,7 @@
       <DependentUpon>Login2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\DTO\ClientStorageAgreementDTO.cs" />
+    <Compile Include="Models\DTO\ClientDTO.cs" />
     <Compile Include="Models\DTO\ContractDTO.cs" />
     <Compile Include="Models\DTO\StorageDTO.cs" />
     <Compile Include="Models\DTO\StorageTypeDTO.cs" />
