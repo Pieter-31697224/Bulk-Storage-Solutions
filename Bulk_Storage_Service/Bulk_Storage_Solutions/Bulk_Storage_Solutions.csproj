@@ -193,10 +193,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="DAL\Features\Contracts\ContractFunctions.cs" />
     <Compile Include="DAL\Features\Contracts\IContracts.cs" />
+    <Compile Include="DAL\Features\IClients\ClientFunctionality.cs" />
+    <Compile Include="DAL\Features\IClients\IClient.cs" />
     <Compile Include="DAL\Features\StorageType\IStorageType.cs" />
     <Compile Include="DAL\Features\StorageType\StorageTypeFunctions.cs" />
     <Compile Include="DAL\SqlDbConnection\ISqlDbConnection.cs" />
     <Compile Include="DAL\SqlDbConnection\OpenSqlDbConnection.cs" />
+    <Compile Include="Models\DTO\ClientDTO.cs" />
     <Compile Include="Models\DTO\ContractDTO.cs" />
     <Compile Include="Models\DTO\StorageTypeDTO.cs" />
     <Compile Include="Views\Cargo.aspx.cs">

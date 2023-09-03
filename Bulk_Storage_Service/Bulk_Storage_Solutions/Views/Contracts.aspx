@@ -34,7 +34,8 @@
                     <ItemTemplate>
                         <asp:LinkButton ID="editLink" runat="server" Text="Edit" CssClass="btn btn-primary" CommandArgument='<%# Eval("Contract_Id") %>' OnClick="EditContractBtn_Click"></asp:LinkButton>
                         <asp:LinkButton ID="deleteLink" runat="server" Text="Delete" CssClass="btn btn-danger" CommandArgument='<%# Eval("Contract_Id") %>' OnClick="PopupDeleteContractBtn_Click"></asp:LinkButton>
-                    </ItemTemplate>
+               
+     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
