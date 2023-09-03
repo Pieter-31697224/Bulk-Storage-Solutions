@@ -15,6 +15,13 @@ namespace Bulk_Storage_Solutions.Views
             {
                 Response.Redirect("~/Views/Login.aspx");
             }
+            else
+            {
+                if(!IsPostBack)
+                {
+                    logo.ImageUrl = "~/Image/logo.png";
+                }
+            }
         }
     }
 }

@@ -66,7 +66,8 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Bulk Storage Solutions</p>
+                <asp:LinkButton ID="helpLink" runat="server" Text="Help?" OnClick="HelpBtn_Click"></asp:LinkButton>
             </footer>
         </div>
 

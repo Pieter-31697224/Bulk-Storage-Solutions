@@ -131,9 +131,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Image\logo.png" />
     <Content Include="Views\Cargo.aspx" />
     <Content Include="Views\Client.aspx" />
     <Content Include="Views\Default.aspx" />
+    <Content Include="Views\Help.aspx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\Reports.aspx" />
     <Content Include="Views\Storage.aspx" />
@@ -248,6 +250,13 @@
     </Compile>
     <Compile Include="Views\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Help.aspx.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Help.aspx.designer.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
