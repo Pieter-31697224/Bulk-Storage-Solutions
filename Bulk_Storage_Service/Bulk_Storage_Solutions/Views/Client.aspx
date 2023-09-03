@@ -83,8 +83,6 @@
                     </div>
                     <div class="modal-body">
                         <asp:HiddenField runat="server" ID="EditClientID" />
-                        <label>Client Id</label>
-                        <asp:TextBox runat="server" ID="txtEditClientId" CssClass="form-control"/> 
                         <label>Client Status</label>
                         <asp:TextBox runat="server" ID="txtEditClientStatus" CssClass="form-control"/>
                         <label>Client Name</label>

@@ -11,11 +11,7 @@ namespace Bulk_Storage_Solutions.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // The code in this page can only be accessed by authenticated users
-            if (!User.Identity.IsAuthenticated)
-            {
-                Response.Redirect("~/Login2.aspx");
-            }
+            
         }
     }
 }

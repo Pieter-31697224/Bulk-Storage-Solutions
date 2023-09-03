@@ -70,10 +70,9 @@ namespace Bulk_Storage_Solutions.Views
 
                 };
 
-
-
-
                 _clients.CreateNewClient(client);
+
+                Page_Load(sender, e);
             }
             catch (Exception ex)
             {
@@ -85,9 +84,8 @@ namespace Bulk_Storage_Solutions.Views
         {
             int clientId = Convert.ToInt32((sender as LinkButton).CommandArgument);
             var client = _clients.GetClientById(clientId);
-            
 
-           ;
+            EditClientID.Value = clientId.ToString();
             EditClientName.Text = client.ClientName;
             EditClientSurname.Text = client.ClientSurname;
             txtEditClientStatus.Text = client.ClientStatus;
@@ -107,14 +105,16 @@ namespace Bulk_Storage_Solutions.Views
             ClientDTO client = new ClientDTO
             {
                 ClientId = clientId,
-                ClientName = ClientName.Text,
-                ClientSurname = ClientSurname.Text,
-                ClientStatus = txtClientStatus.Text,
-                ClientContact = ClientContact.Text,
-                ClientEmail = ClientEmail.Text,
+                ClientName = EditClientName.Text,
+                ClientSurname = EditClientSurname.Text,
+                ClientStatus = txtEditClientStatus.Text,
+                ClientContact = EditClientContact.Text,
+                ClientEmail = EditClientEmail.Text,
 
             };
             _clients.UpdateClient(client);
+
+            Page_Load(sender, e);
         }
 
         protected void PopupDeleteClientBtn_Click(object sender, EventArgs e)
@@ -122,7 +122,7 @@ namespace Bulk_Storage_Solutions.Views
             int clientId = Convert.ToInt32((sender as LinkButton).CommandArgument);
             DeleteClientId.Value = clientId.ToString();
 
-            ScriptManager.RegisterStartupScript(this, GetType(), "deleteContractModal", "$('#deleteContractModal').modal('show');", true);
+            ScriptManager.RegisterStartupScript(this, GetType(), "deleteClientModal", "$('#deleteClientModal').modal('show');", true);
         }
 
         protected void DeleteClientBtn_Click(object sender, EventArgs e)
@@ -130,7 +130,7 @@ namespace Bulk_Storage_Solutions.Views
             int clientId = Convert.ToInt32(DeleteClientId.Value);
             _clients.DeleteClient(clientId);
 
-
+            Page_Load(sender, e);
         }
 
     }

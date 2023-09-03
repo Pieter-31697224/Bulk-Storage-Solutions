@@ -5,7 +5,6 @@ using Bulk_Storage_Solutions.DAL.Features.Cargo;
 using Bulk_Storage_Solutions.DAL.Features.Reports;
 using Bulk_Storage_Solutions.DAL.Features.Storage;
 using Bulk_Storage_Solutions.DAL.Features.StorageType;
-using Bulk_Storage_Solutions.DAL.Features.Users;
 using Bulk_Storage_Solutions.DAL.SqlDbConnection;
 using Bulk_Storage_Solutions.DAL.Features.IClients;
 using System;
@@ -28,7 +27,6 @@ namespace Bulk_Storage_Solutions
             builder.RegisterType<StorageFunctions>().As<IStorage>().SingleInstance();
             builder.RegisterType<ClientStorageAgreementFunctions>().As<IClientStorageAgreement>().SingleInstance();
             builder.RegisterType<ReportingFunctions>().As<IReports>().SingleInstance();
-            builder.RegisterType<UserFunctions>().As<IUser>().SingleInstance();
             builder.RegisterType<ClientFunctionality>().As<IClient>().SingleInstance();
 
              _container = builder.Build();

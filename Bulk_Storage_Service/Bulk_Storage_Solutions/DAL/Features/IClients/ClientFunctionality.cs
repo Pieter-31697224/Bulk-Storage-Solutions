@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
 using System.Web;
-
+using Bulk_Storage_Solutions.Exceptions;
 
 namespace Bulk_Storage_Solutions.DAL.Features.IClients
 {
@@ -164,12 +164,46 @@ namespace Bulk_Storage_Solutions.DAL.Features.IClients
 
         public void UpdateClient(ClientDTO client)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var connection = _db.OpenDbConnection();
+                SqlCommand cmd = new SqlCommand("UpdateClient", connection);
+
+                cmd.CommandType= CommandType.StoredProcedure;
+                cmd.Parameters.Add("@clientId", SqlDbType.Int).Value = client.ClientId;
+                cmd.Parameters.Add("@clientName", SqlDbType.VarChar).Value= client.ClientName;
+                cmd.Parameters.Add("@clientSurname", SqlDbType.VarChar).Value = client.ClientSurname;
+                cmd.Parameters.Add("@clientEmail", SqlDbType.VarChar).Value = client.ClientEmail;
+                cmd.Parameters.Add("@clientContactNumber", SqlDbType.VarChar).Value = client.ClientContact;
+                cmd.Parameters.Add("@clientStatus", SqlDbType.VarChar).Value = client.ClientStatus;
+
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch(Exception ex)
+            {
+                throw new BadRequestException($"Could not update client ({client.ClientId}). ({ex.Message})");
+            }
         }
 
         public void DeleteClient(int clientId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var connection = _db.OpenDbConnection();
+                SqlCommand cmd = new SqlCommand("DeleteClient", connection);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@clientId", SqlDbType.Int).Value = clientId;
+
+                cmd.ExecuteNonQuery();
+
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new BadRequestException($"Could not delete client ({clientId}). ({ex.Message})");
+            }
         }
     }
 }
