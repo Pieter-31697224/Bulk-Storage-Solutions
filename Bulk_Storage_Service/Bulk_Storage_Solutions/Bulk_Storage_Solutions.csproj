@@ -75,6 +75,7 @@
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -130,6 +131,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Login1.aspx" />
+    <Content Include="Views\Login2.aspx" />
+    <Content Include="Views\SignUp.aspx" />
     <Content Include="Views\Cargo.aspx" />
     <Content Include="Views\Client.aspx" />
     <Content Include="Views\Default.aspx" />
@@ -191,17 +195,63 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="DAL\Features\Cargo\CargoFunctions.cs" />
+    <Compile Include="DAL\Features\Cargo\ICargo.cs" />
+    <Compile Include="DAL\Features\ClientStorageAgreement\ClientStorageAgreementFunctions.cs" />
+    <Compile Include="DAL\Features\ClientStorageAgreement\IClientStorageAgreement.cs" />
     <Compile Include="DAL\Features\Contracts\ContractFunctions.cs" />
     <Compile Include="DAL\Features\Contracts\IContracts.cs" />
+    <Compile Include="DAL\Features\Reports\IReports.cs" />
+    <Compile Include="DAL\Features\Reports\ReportingFunctions.cs" />
     <Compile Include="DAL\Features\IClients\ClientFunctionality.cs" />
     <Compile Include="DAL\Features\IClients\IClient.cs" />
     <Compile Include="DAL\Features\StorageType\IStorageType.cs" />
     <Compile Include="DAL\Features\StorageType\StorageTypeFunctions.cs" />
+    <Compile Include="DAL\Features\Storage\IStorage.cs" />
+    <Compile Include="DAL\Features\Storage\StorageFunctions.cs" />
+    <Compile Include="DAL\Features\Users\IUser.cs" />
+    <Compile Include="DAL\Features\Users\UserFunctions.cs" />
     <Compile Include="DAL\SqlDbConnection\ISqlDbConnection.cs" />
     <Compile Include="DAL\SqlDbConnection\OpenSqlDbConnection.cs" />
+    <Compile Include="Models\DTO\CargoDTO.cs" />
+    <Compile Include="Enums\enums.cs" />
+    <Compile Include="Exceptions\BadRequestException.cs" />
+    <Compile Include="Exceptions\NotFoundException.cs" />
+    <Compile Include="Views\Login1.aspx.cs">
+      <DependentUpon>Login1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Login1.aspx.designer.cs">
+      <DependentUpon>Login1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login2.aspx.cs">
+      <DependentUpon>Login2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Login2.aspx.designer.cs">
+      <DependentUpon>Login2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DTO\ClientStorageAgreementDTO.cs" />
     <Compile Include="Models\DTO\ClientDTO.cs" />
     <Compile Include="Models\DTO\ContractDTO.cs" />
+    <Compile Include="Models\DTO\StorageDTO.cs" />
     <Compile Include="Models\DTO\StorageTypeDTO.cs" />
+    <Compile Include="Models\DTO\UserDTO.cs" />
+    <Compile Include="Models\Persistent\Cargo.cs" />
+    <Compile Include="Models\Persistent\Client.cs" />
+    <Compile Include="Models\Persistent\ClientReport.cs" />
+    <Compile Include="Models\Persistent\Contract.cs" />
+    <Compile Include="Models\Persistent\Storage.cs" />
+    <Compile Include="Models\Persistent\StorageStatusReport.cs" />
+    <Compile Include="Models\Persistent\StorageType.cs" />
+    <Compile Include="Models\Persistent\StorageTypeReport.cs" />
+    <Compile Include="Views\SignUp.aspx.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SignUp.aspx.designer.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Cargo.aspx.cs">
       <DependentUpon>Cargo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -285,7 +335,9 @@
       <DependentUpon>StorageType.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
