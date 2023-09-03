@@ -131,9 +131,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Login1.aspx" />
-    <Content Include="Views\Login2.aspx" />
-    <Content Include="Views\SignUp.aspx" />
     <Content Include="Views\Cargo.aspx" />
     <Content Include="Views\Client.aspx" />
     <Content Include="Views\Default.aspx" />
@@ -209,28 +206,12 @@
     <Compile Include="DAL\Features\StorageType\StorageTypeFunctions.cs" />
     <Compile Include="DAL\Features\Storage\IStorage.cs" />
     <Compile Include="DAL\Features\Storage\StorageFunctions.cs" />
-    <Compile Include="DAL\Features\Users\IUser.cs" />
-    <Compile Include="DAL\Features\Users\UserFunctions.cs" />
     <Compile Include="DAL\SqlDbConnection\ISqlDbConnection.cs" />
     <Compile Include="DAL\SqlDbConnection\OpenSqlDbConnection.cs" />
     <Compile Include="Models\DTO\CargoDTO.cs" />
     <Compile Include="Enums\enums.cs" />
     <Compile Include="Exceptions\BadRequestException.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
-    <Compile Include="Views\Login1.aspx.cs">
-      <DependentUpon>Login1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Login1.aspx.designer.cs">
-      <DependentUpon>Login1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Login2.aspx.cs">
-      <DependentUpon>Login2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Login2.aspx.designer.cs">
-      <DependentUpon>Login2.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Models\DTO\ClientStorageAgreementDTO.cs" />
     <Compile Include="Models\DTO\ClientDTO.cs" />
     <Compile Include="Models\DTO\ContractDTO.cs" />
@@ -245,13 +226,6 @@
     <Compile Include="Models\Persistent\StorageStatusReport.cs" />
     <Compile Include="Models\Persistent\StorageType.cs" />
     <Compile Include="Models\Persistent\StorageTypeReport.cs" />
-    <Compile Include="Views\SignUp.aspx.cs">
-      <DependentUpon>SignUp.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\SignUp.aspx.designer.cs">
-      <DependentUpon>SignUp.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Views\Cargo.aspx.cs">
       <DependentUpon>Cargo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
