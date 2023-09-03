@@ -132,11 +132,11 @@ namespace Bulk_Storage_Solutions.DAL.Features.ClientStorageAgreement
             }
         }
 
-        public List<Cargo> GetAllCargoForDropDownList()
+        public List<Models.Persistent.Cargo> GetAllCargoForDropDownList()
         {
             try
             {
-                List<Cargo> cargoList = new List<Cargo>();
+                List<Models.Persistent.Cargo> cargoList = new List<Models.Persistent.Cargo>();
                 var connection = _db.OpenDbConnection();
                 SqlCommand cmd = new SqlCommand("GetAllCargoForClientStorageAgreementDropDownList", connection);
 
@@ -146,7 +146,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.ClientStorageAgreement
 
                 while (reader.Read())
                 {
-                    Cargo client = new Cargo
+                    Models.Persistent.Cargo client = new Models.Persistent.Cargo
                     {
                         CargoId = Convert.ToInt32(reader["Cargo_Id"]),
                         CargoDesc = reader["Cargo_Desc"].ToString()
