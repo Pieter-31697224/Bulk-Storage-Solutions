@@ -55,7 +55,7 @@
                         <label>Contract Status</label>
                         <asp:TextBox runat="server" ID="txtContractStatus" CssClass="form-control" placeholder="Status"/>
                         <label>Contract Start Date</label>
-                        <asp:TextBox ID="startDateCal" runat="server" CssClass="form-control" placeholder="Statr Date" type="date"></asp:TextBox>
+                        <asp:TextBox ID="startDateCal" runat="server" CssClass="form-control" placeholder="Start Date" type="date"></asp:TextBox>
                         <label>Contract End Date</label>
                         <asp:TextBox ID="endDateCal" runat="server" CssClass="form-control" placeholder="End Date" type="date"></asp:TextBox>
                     </div>

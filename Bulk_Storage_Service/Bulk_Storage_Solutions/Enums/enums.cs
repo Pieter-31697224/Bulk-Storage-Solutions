@@ -15,5 +15,14 @@ namespace Bulk_Storage_Solutions.Enums
             Pending = 3,
             Discontinued = 4
         }
+
+        public enum ChartType
+        {
+            Pie = 1,
+            Bar = 2,
+            Column = 3,
+            Doughnut = 4,
+            Line = 5
+        }
     }
 }

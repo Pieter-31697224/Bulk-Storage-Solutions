@@ -198,6 +198,8 @@
     <Compile Include="DAL\Features\ClientStorageAgreement\IClientStorageAgreement.cs" />
     <Compile Include="DAL\Features\Contracts\ContractFunctions.cs" />
     <Compile Include="DAL\Features\Contracts\IContracts.cs" />
+    <Compile Include="DAL\Features\Reports\IReports.cs" />
+    <Compile Include="DAL\Features\Reports\ReportingFunctions.cs" />
     <Compile Include="DAL\Features\StorageType\IStorageType.cs" />
     <Compile Include="DAL\Features\StorageType\StorageTypeFunctions.cs" />
     <Compile Include="DAL\Features\Storage\IStorage.cs" />
@@ -214,9 +216,12 @@
     <Compile Include="Models\DTO\StorageTypeDTO.cs" />
     <Compile Include="Models\Persistent\Cargo.cs" />
     <Compile Include="Models\Persistent\Client.cs" />
+    <Compile Include="Models\Persistent\ClientReport.cs" />
     <Compile Include="Models\Persistent\Contract.cs" />
     <Compile Include="Models\Persistent\Storage.cs" />
+    <Compile Include="Models\Persistent\StorageStatusReport.cs" />
     <Compile Include="Models\Persistent\StorageType.cs" />
+    <Compile Include="Models\Persistent\StorageTypeReport.cs" />
     <Compile Include="Views\Cargo.aspx.cs">
       <DependentUpon>Cargo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
