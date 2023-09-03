@@ -25,14 +25,21 @@ namespace Bulk_Storage_Solutions.Views
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+            if (!User.Identity.IsAuthenticated)
             {
-                ClientGridView.DataSource = _clients.GetAllRowsFromClients();
-                ClientGridView.DataBind();
+                Response.Redirect("~/Views/Login.aspx");
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine(ex.Message);
+                try
+                {
+                    ClientGridView.DataSource = _clients.GetAllRowsFromClients();
+                    ClientGridView.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
         }
 

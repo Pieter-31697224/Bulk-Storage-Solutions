@@ -16,22 +16,29 @@ namespace Bulk_Storage_Solutions
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+            if (!User.Identity.IsAuthenticated)
             {
-                CSAGridView.DataSource = _clientStorageAgreement.GetAllClientStorageAgreements();
-                CSAGridView.DataBind();
-
-                if(!IsPostBack)
-                {
-                    FillClientDropDownList();
-                    FillCargoDropDownList();
-                    FillContractDropDownList();
-                    FillStorageDropDownList();
-                }
+                Response.Redirect("~/Views/Login.aspx");
             }
-            catch(Exception ex)
+            else
             {
-                Console.WriteLine(ex.Message);
+                try
+                {
+                    CSAGridView.DataSource = _clientStorageAgreement.GetAllClientStorageAgreements();
+                    CSAGridView.DataBind();
+
+                    if (!IsPostBack)
+                    {
+                        FillClientDropDownList();
+                        FillCargoDropDownList();
+                        FillContractDropDownList();
+                        FillStorageDropDownList();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
         }
 
