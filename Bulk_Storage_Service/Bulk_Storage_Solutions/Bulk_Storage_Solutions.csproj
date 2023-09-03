@@ -192,6 +192,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="DAL\Features\Cargo\CargoFunctions.cs" />
+    <Compile Include="DAL\Features\Cargo\ICargo.cs" />
     <Compile Include="DAL\Features\ClientStorageAgreement\ClientStorageAgreementFunctions.cs" />
     <Compile Include="DAL\Features\ClientStorageAgreement\IClientStorageAgreement.cs" />
     <Compile Include="DAL\Features\Contracts\ContractFunctions.cs" />
@@ -202,6 +204,7 @@
     <Compile Include="DAL\Features\Storage\StorageFunctions.cs" />
     <Compile Include="DAL\SqlDbConnection\ISqlDbConnection.cs" />
     <Compile Include="DAL\SqlDbConnection\OpenSqlDbConnection.cs" />
+    <Compile Include="Models\DTO\CargoDTO.cs" />
     <Compile Include="Enums\enums.cs" />
     <Compile Include="Exceptions\BadRequestException.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
@@ -297,7 +300,9 @@
       <DependentUpon>StorageType.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
