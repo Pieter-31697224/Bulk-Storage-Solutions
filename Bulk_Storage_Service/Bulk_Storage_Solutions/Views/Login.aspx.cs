@@ -1,15 +1,11 @@
 ﻿using Bulk_Storage_Solutions.DAL.Features.LoginValidation;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Security;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Bulk_Storage_Solutions.Views
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class Login : Page
     {
         private readonly IValidation _validation;
 

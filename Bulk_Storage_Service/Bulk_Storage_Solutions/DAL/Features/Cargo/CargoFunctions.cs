@@ -1,4 +1,5 @@
 ﻿using Bulk_Storage_Solutions.DAL.SqlDbConnection;
+using Bulk_Storage_Solutions.Exceptions;
 using Bulk_Storage_Solutions.Models.DTO;
 using System;
 using System.Data;
@@ -30,8 +31,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.Cargo
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new NotFoundException(nameof(Cargo), ex.Message);
             }
 
         }
@@ -56,8 +56,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.Cargo
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new NotFoundException(nameof(Cargo), search);
             }
         }
 
@@ -83,8 +82,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.Cargo
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new BadRequestException($"Could not create cargo. ({ex.Message})");
             }
         }
 
@@ -122,8 +120,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.Cargo
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new NotFoundException(nameof(Cargo), cargoId);
             }
         }
 
@@ -148,8 +145,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.Cargo
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new BadRequestException($"Could not update cargo ({cargo.CargoId}). ({ex.Message})");
             }
         }
 
@@ -170,8 +166,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.Cargo
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new BadRequestException($"Could not update cargo ({cargoId}). ({ex.Message})");
             }
         }
     }

@@ -1,16 +1,9 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
-using System.Data;
-using Bulk_Storage_Solutions.DAL.SqlDbConnection;
 using Bulk_Storage_Solutions.DAL.Features.IClients;
 using Bulk_Storage_Solutions.Models.DTO;
-
+using static Bulk_Storage_Solutions.Enums.enums;
 
 namespace Bulk_Storage_Solutions.Views
 {
@@ -35,6 +28,12 @@ namespace Bulk_Storage_Solutions.Views
                 {
                     ClientGridView.DataSource = _clients.GetAllRowsFromClients();
                     ClientGridView.DataBind();
+
+                    if(!IsPostBack)
+                    {
+                        FillClientStatusDropDownList();
+                        FillClientStatusDropDownListForEdit();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -71,7 +70,7 @@ namespace Bulk_Storage_Solutions.Views
                     
                     ClientName = ClientName.Text,
                     ClientSurname = ClientSurname.Text,
-                    ClientStatus = txtClientStatus.Text,
+                    ClientStatus = ClientStatusDropDownList.SelectedItem.Text,
                     ClientEmail = ClientEmail.Text,
                     ClientContact = ClientContact.Text
 
@@ -95,7 +94,7 @@ namespace Bulk_Storage_Solutions.Views
             EditClientID.Value = clientId.ToString();
             EditClientName.Text = client.ClientName;
             EditClientSurname.Text = client.ClientSurname;
-            txtEditClientStatus.Text = client.ClientStatus;
+            EditClientStatusDropDownList.SelectedItem.Text = client.ClientStatus;
             EditClientContact.Text = client.ClientContact.ToString();
             EditClientEmail.Text = client.ClientEmail;
 
@@ -114,7 +113,7 @@ namespace Bulk_Storage_Solutions.Views
                 ClientId = clientId,
                 ClientName = EditClientName.Text,
                 ClientSurname = EditClientSurname.Text,
-                ClientStatus = txtEditClientStatus.Text,
+                ClientStatus = EditClientStatusDropDownList.SelectedItem.Text,
                 ClientContact = EditClientContact.Text,
                 ClientEmail = EditClientEmail.Text,
 
@@ -138,6 +137,26 @@ namespace Bulk_Storage_Solutions.Views
             _clients.DeleteClient(clientId);
 
             Page_Load(sender, e);
+        }
+
+        public void FillClientStatusDropDownList()
+        {
+            Status[] statusValues = (Status[])Enum.GetValues(typeof(Status));
+
+            foreach (Status status in statusValues)
+            {
+                ClientStatusDropDownList.Items.Add(new ListItem(status.ToString(), ((int)status).ToString()));
+            }
+        }
+
+        public void FillClientStatusDropDownListForEdit()
+        {
+            Status[] statusValues = (Status[])Enum.GetValues(typeof(Status));
+
+            foreach (Status status in statusValues)
+            {
+                EditClientStatusDropDownList.Items.Add(new ListItem(status.ToString(), ((int)status).ToString()));
+            }
         }
 
     }
