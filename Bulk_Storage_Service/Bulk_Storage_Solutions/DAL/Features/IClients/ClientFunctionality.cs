@@ -1,11 +1,8 @@
 ﻿using Bulk_Storage_Solutions.DAL.SqlDbConnection;
 using Bulk_Storage_Solutions.Models.DTO;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Web;
 using Bulk_Storage_Solutions.Exceptions;
 
 namespace Bulk_Storage_Solutions.DAL.Features.IClients
@@ -36,8 +33,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.IClients
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new NotFoundException(nameof(IClients), ex.Message);
             }
 
         }
@@ -62,8 +58,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.IClients
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new NotFoundException(nameof(IClients), search);
             }
         }
 
@@ -90,8 +85,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.IClients
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new Exception(); throw new BadRequestException($"Could not create client ({client.ClientId}). ({ex.Message})");
             }
         }
 
@@ -129,36 +123,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.IClients
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
-            }
-        }
-
-        public void UpdateContract(ClientDTO client)
-        {
-            try
-            {
-                var connection = _db.OpenDbConnection();
-                SqlCommand cmd = new SqlCommand("UpdateClient", connection);
-
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@clientId", SqlDbType.Int).Value = client.ClientId;
-                cmd.Parameters.Add("@clientName", SqlDbType.VarChar).Value = client.ClientName;
-                cmd.Parameters.Add("@clientSurname", SqlDbType.VarChar).Value = client.ClientSurname;
-                cmd.Parameters.Add("@clientStatus", SqlDbType.VarChar).Value = client.ClientStatus;
-                cmd.Parameters.Add("@clientEmail", SqlDbType.VarChar).Value = client.ClientEmail;
-                cmd.Parameters.Add("@clientContactNumber", SqlDbType.VarChar).Value = client.ClientContact;
-
-
-
-                cmd.ExecuteNonQuery();
-
-                connection.Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                throw new Exception();
+                throw new NotFoundException(nameof(IClient), clientId);
             }
         }
 

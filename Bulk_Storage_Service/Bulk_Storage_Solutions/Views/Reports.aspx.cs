@@ -1,10 +1,5 @@
 ﻿using Bulk_Storage_Solutions.DAL.Features.Reports;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.DataVisualization.Charting;
 using System.Web.UI.WebControls;
 using static Bulk_Storage_Solutions.Enums.enums;

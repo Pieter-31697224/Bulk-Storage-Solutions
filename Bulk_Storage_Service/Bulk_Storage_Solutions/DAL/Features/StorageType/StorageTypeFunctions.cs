@@ -2,15 +2,9 @@
 using Bulk_Storage_Solutions.DAL.SqlDbConnection;
 using Bulk_Storage_Solutions.Exceptions;
 using Bulk_Storage_Solutions.Models.DTO;
-using Bulk_Storage_Solutions.Views;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Web;
-using System.Web.WebSockets;
 
 namespace Bulk_Storage_Solutions.DAL.Features.StorageType
 {

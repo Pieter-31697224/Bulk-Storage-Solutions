@@ -31,7 +31,6 @@ namespace Bulk_Storage_Solutions
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
-                    throw new Exception();
                 }
             }
         }
@@ -46,7 +45,6 @@ namespace Bulk_Storage_Solutions
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                throw new Exception();
             }
         }
 
@@ -69,8 +67,6 @@ namespace Bulk_Storage_Solutions
                     CargoLat = Convert.ToDouble(txtCargoLat.Text)
                 };
 
-                
-
                 _cargo.CreateNewCargo(cargo);
 
                 Page_Load(sender, e);
@@ -78,7 +74,6 @@ namespace Bulk_Storage_Solutions
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                throw new Exception();
             }
         }
 
@@ -121,7 +116,6 @@ namespace Bulk_Storage_Solutions
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                throw new Exception();
             }
         }
 
@@ -144,8 +138,7 @@ namespace Bulk_Storage_Solutions
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex?.ToString());
-                throw new Exception();
+                Console.WriteLine(ex?.ToString());;
             }
         }
     }

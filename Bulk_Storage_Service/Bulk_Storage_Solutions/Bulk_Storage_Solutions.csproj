@@ -220,7 +220,6 @@
     <Compile Include="Models\DTO\ContractDTO.cs" />
     <Compile Include="Models\DTO\StorageDTO.cs" />
     <Compile Include="Models\DTO\StorageTypeDTO.cs" />
-    <Compile Include="Models\DTO\UserDTO.cs" />
     <Compile Include="Models\Persistent\Cargo.cs" />
     <Compile Include="Models\Persistent\Client.cs" />
     <Compile Include="Models\Persistent\ClientReport.cs" />
@@ -319,9 +318,7 @@
       <DependentUpon>StorageType.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />

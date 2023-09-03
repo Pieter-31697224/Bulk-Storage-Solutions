@@ -58,7 +58,7 @@
                         <label>Client Surname</label>
                         <asp:TextBox ID="ClientSurname" runat="server" CssClass="form-control" placeholder="Client Surname"></asp:TextBox>
                         <label>Client Status</label>
-                        <asp:TextBox runat="server" ID="txtClientStatus" CssClass="form-control" placeholder="Status"/>
+                        <asp:DropDownList runat="server" ID="ClientStatusDropDownList" CssClass="form-control" placeholder="Status" AutoPostBack="false"></asp:DropDownList>
                          <label>Client Email</label>
                         <asp:TextBox runat="server" ID="ClientEmail" CssClass="form-control" placeholder="Client Email"/>
                          <label>Client Contact</label>
@@ -84,7 +84,7 @@
                     <div class="modal-body">
                         <asp:HiddenField runat="server" ID="EditClientID" />
                         <label>Client Status</label>
-                        <asp:TextBox runat="server" ID="txtEditClientStatus" CssClass="form-control"/>
+                        <asp:DropDownList runat="server" ID="EditClientStatusDropDownList" CssClass="form-control" placeholder="Status" AutoPostBack="false"></asp:DropDownList>
                         <label>Client Name</label>
                         <asp:TextBox ID="EditClientName" runat="server" CssClass="form-control"></asp:TextBox>
                         <label>Client Surname</label>

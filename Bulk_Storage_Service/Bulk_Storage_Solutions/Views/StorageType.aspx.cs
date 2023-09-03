@@ -1,9 +1,6 @@
 ﻿using Bulk_Storage_Solutions.DAL.Features.StorageType;
 using Bulk_Storage_Solutions.Models.DTO;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
