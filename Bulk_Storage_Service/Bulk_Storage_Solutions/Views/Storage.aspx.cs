@@ -91,8 +91,6 @@ namespace Bulk_Storage_Solutions
             var storage = _storage.GetStorageById(storageId);
             EditStorageID.Value = storageId.ToString();
             
-            EditStorageDropDownList.DataTextField = storage.storageDescription.ToString();
-            EditStorageDropDownList.DataValueField = storage.storageTypeId.ToString();
             ScriptManager.RegisterStartupScript(this, GetType(), "editStorageModal", "$('#editStorageModal').modal('show');", true);
         }
 

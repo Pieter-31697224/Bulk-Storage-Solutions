@@ -54,7 +54,7 @@
                         <label>Contract Description</label>
                         <asp:TextBox runat="server" ID="txtContractDesc" CssClass="form-control" placeholder="Description"/>  
                         <label>Contract Status</label>
-                        <asp:TextBox runat="server" ID="txtContractStatus" CssClass="form-control" placeholder="Status"/>
+                        <asp:DropDownList runat="server" ID="ContractStatusDropDownList" CssClass="form-control" placeholder="Status" AutoPostBack="false"></asp:DropDownList>
                         <label>Contract Start Date</label>
                         <asp:TextBox ID="startDateCal" runat="server" CssClass="form-control" placeholder="Start Date" type="date"></asp:TextBox>
                         <label>Contract End Date</label>
@@ -82,7 +82,7 @@
                         <label>Contract Description</label>
                         <asp:TextBox runat="server" ID="txtEditDesc" CssClass="form-control"/>  
                         <label>Contract Status</label>
-                        <asp:TextBox runat="server" ID="txtEditStatus" CssClass="form-control"/>
+                        <asp:DropDownList runat="server" ID="EditContractStatusDropDownList" CssClass="form-control" placeholder="Status" AutoPostBack="false"></asp:DropDownList>
                         <label>Contract Start Date</label>
                         <asp:TextBox ID="txtEditStartDate" runat="server" CssClass="form-control" type="date"></asp:TextBox>
                         <label>Contract End Date</label>

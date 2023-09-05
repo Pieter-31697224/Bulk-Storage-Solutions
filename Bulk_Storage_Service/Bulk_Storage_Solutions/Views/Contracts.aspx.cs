@@ -3,6 +3,7 @@ using Bulk_Storage_Solutions.Models.DTO;
 using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static Bulk_Storage_Solutions.Enums.enums;
 
 namespace Bulk_Storage_Solutions
 {
@@ -27,6 +28,12 @@ namespace Bulk_Storage_Solutions
                 {
                     ContractsGridView.DataSource = _contracts.GetAllRowsFromContracts();
                     ContractsGridView.DataBind();
+
+                    if(!IsPostBack)
+                    {
+                        FillContractStatusDropDownList();
+                        FillContractStatusDropDownListForEdit();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -61,7 +68,7 @@ namespace Bulk_Storage_Solutions
                 ContractDTO contract = new ContractDTO
                 {
                     ContractDescription = txtContractDesc.Text,
-                    ContractStatus = txtContractStatus.Text,
+                    ContractStatus = ContractStatusDropDownList.SelectedItem.Text,
                     StartDate = DateTime.TryParse(startDateCal.Text, out DateTime resultStartDate) ? DateTime.Parse(startDateCal.Text) : DateTime.MinValue, 
                     EndDate = DateTime.TryParse(endDateCal.Text, out DateTime resultEndDate) ? DateTime.Parse(endDateCal.Text) : DateTime.MinValue
                 };
@@ -93,7 +100,6 @@ namespace Bulk_Storage_Solutions
             EditContractID.Value = contractId.ToString();
 
             txtEditDesc.Text = contract.ContractDescription;
-            txtEditStatus.Text = contract.ContractStatus;
             txtEditStartDate.Text = contract.StartDate.HasValue ? contract.StartDate.Value.ToString("yyyy-MM-dd") : null;
             txtEditEndDate.Text = contract.EndDate.HasValue ? contract.EndDate.Value.ToString("yyyy-MM-dd") : null;
 
@@ -110,7 +116,7 @@ namespace Bulk_Storage_Solutions
                 {
                     ContractId = contractId,
                     ContractDescription = txtEditDesc.Text,
-                    ContractStatus = txtEditStatus.Text,
+                    ContractStatus = EditContractStatusDropDownList.SelectedItem.Text,
                     StartDate = DateTime.TryParse(txtEditStartDate.Text, out DateTime resultStartDate) ? DateTime.Parse(txtEditStartDate.Text) : DateTime.MinValue,
                     EndDate = DateTime.TryParse(txtEditEndDate.Text, out DateTime resultEndDate) ? DateTime.Parse(txtEditEndDate.Text) : DateTime.MinValue
                 };
@@ -155,6 +161,26 @@ namespace Bulk_Storage_Solutions
             catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+        }
+
+        public void FillContractStatusDropDownList()
+        {
+            Status[] statusValues = (Status[])Enum.GetValues(typeof(Status));
+
+            foreach (Status status in statusValues)
+            {
+                ContractStatusDropDownList.Items.Add(new ListItem(status.ToString(), ((int)status).ToString()));
+            }
+        }
+
+        public void FillContractStatusDropDownListForEdit()
+        {
+            Status[] statusValues = (Status[])Enum.GetValues(typeof(Status));
+
+            foreach (Status status in statusValues)
+            {
+                EditContractStatusDropDownList.Items.Add(new ListItem(status.ToString(), ((int)status).ToString()));
             }
         }
     }
