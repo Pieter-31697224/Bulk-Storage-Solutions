@@ -160,6 +160,7 @@ namespace Bulk_Storage_Solutions
             }
             catch(Exception ex)
             {
+                ScriptManager.RegisterStartupScript(this, GetType(), "errorPopupContractModal", "$('#errorPopupContractModal').modal('show');", true);
                 Console.WriteLine(ex.Message);
             }
         }

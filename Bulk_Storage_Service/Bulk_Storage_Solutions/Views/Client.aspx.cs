@@ -132,10 +132,18 @@ namespace Bulk_Storage_Solutions.Views
 
         protected void DeleteClientBtn_Click(object sender, EventArgs e)
         {
-            int clientId = Convert.ToInt32(DeleteClientId.Value);
-            _clients.DeleteClient(clientId);
+            try
+            {
+                int clientId = Convert.ToInt32(DeleteClientId.Value);
+                _clients.DeleteClient(clientId);
 
-            Page_Load(sender, e);
+                Page_Load(sender, e);
+            }
+            catch(Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "errorPopupClientModal", "$('#errorPopupClientModal').modal('show');", true);
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void FillClientStatusDropDownList()
