@@ -105,4 +105,24 @@
             </div>
         </div>
     </div>
+
+    <div class="container">
+        <div class="modal fade" id="errorPopupStorageTypeModal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Error</h4>
+                        <button type="button"class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <asp:HiddenField runat="server" ID="HiddenField1" />
+                        <label>Storage Type could not be deleted. Storage Units assigned to this type.</label>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="Button2" runat="server" Height="40px" data-dismiss="modal" Text="Ok" class="btn  btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>
