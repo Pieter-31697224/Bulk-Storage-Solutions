@@ -46,6 +46,8 @@ namespace Bulk_Storage_Solutions.Views
 
         protected void SearchClientReportButton_Click(object sender, EventArgs e)
         {
+            BindStorageTypeChart(Convert.ToInt32(StorageTypeChartTypeDropDownList.SelectedValue));
+            BindStorageStatusChart(Convert.ToInt32(StorageStatusDropDownList.SelectedValue));
             BindClientChartData(Convert.ToInt32(ChartTypeDropDownListForClientsChart.SelectedValue), StartDateForClientChart.Text, EndDateForClientChart.Text);
         }
 

@@ -1,8 +1,10 @@
 ﻿<%@ Page Title="Reports" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" Debug="true" CodeBehind="Reports.aspx.cs" Inherits="Bulk_Storage_Solutions.Views.Reports" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    
+     <h2><%: Title %> </h2>
 
-    <div class="container">
+    <div>
         <div class="card" style="border: 1px solid #ddd; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin-bottom: 20px; background-color: #fff;">
             <div class="card-body" style="padding: 20px;">
                 <h3 class="text-center">Top Ten Active Clients</h3>
@@ -10,7 +12,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div>
         <div class="card" style="border: 1px solid #ddd; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin-bottom: 20px; background-color: #fff;">
             <div class="card-body" style="padding: 20px;">
                 <div class="container">
@@ -48,7 +50,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div>
         <div class="card" style="border: 1px solid #ddd; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin-bottom: 20px; background-color: #fff;">
             <div class="card-body" style="padding: 20px;">
                 <h3 class="text-center">Most Popular Storage Types</h3>
@@ -56,7 +58,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div>
         <div class="card" style="border: 1px solid #ddd; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin-bottom: 20px; background-color: #fff;">
             <div class="card-body" style="padding: 20px;">
                 <div class="container">
@@ -85,7 +87,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div>
         <div class="card" style="border: 1px solid #ddd; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin-bottom: 20px; background-color: #fff;">
             <div class="card-body" style="padding: 20px;">
                 <h3 class="text-center">Storage Status Report</h3>
@@ -93,7 +95,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div>
         <div class="card" style="border: 1px solid #ddd; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin-bottom: 20px; background-color: #fff;">
             <div class="card-body" style="padding: 20px;">
                 <div class="container">

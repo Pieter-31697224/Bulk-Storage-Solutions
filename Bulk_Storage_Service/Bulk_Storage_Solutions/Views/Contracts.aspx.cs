@@ -111,8 +111,8 @@ namespace Bulk_Storage_Solutions
                     ContractId = contractId,
                     ContractDescription = txtEditDesc.Text,
                     ContractStatus = txtEditStatus.Text,
-                    StartDate = DateTime.TryParse(startDateCal.Text, out DateTime resultStartDate) ? DateTime.Parse(startDateCal.Text) : DateTime.MinValue,
-                    EndDate = DateTime.TryParse(endDateCal.Text, out DateTime resultEndDate) ? DateTime.Parse(endDateCal.Text) : DateTime.MinValue
+                    StartDate = DateTime.TryParse(txtEditStartDate.Text, out DateTime resultStartDate) ? DateTime.Parse(txtEditStartDate.Text) : DateTime.MinValue,
+                    EndDate = DateTime.TryParse(txtEditEndDate.Text, out DateTime resultEndDate) ? DateTime.Parse(txtEditEndDate.Text) : DateTime.MinValue
                 };
 
                 if (contract.StartDate == DateTime.MinValue)
