@@ -21,14 +21,27 @@ namespace Bulk_Storage_Solutions.DAL.Features.Reports
         {
             try
             {
+                DateTime? startDateTime = DateTime.TryParse(startDate, out DateTime resultStartDate) ? DateTime.Parse(startDate) : DateTime.MinValue;
+                DateTime? endDateTime = DateTime.TryParse(endDate, out DateTime resultEndDate) ? DateTime.Parse(endDate) : DateTime.MinValue;
+
+                if(startDateTime == DateTime.MinValue)
+                {
+                    startDateTime = null;
+                }
+
+                if(endDateTime == DateTime.MinValue)
+                {
+                    endDateTime= null;
+                }
+
                 List<ClientReport> clientReportList = new List<ClientReport>();
                 var connection = _db.OpenDbConnection();
                 SqlCommand cmd = new SqlCommand("GetTopTenClients", connection);
 
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.Add("@startDate", SqlDbType.VarChar).Value = startDate;
-                cmd.Parameters.Add("@endDate", SqlDbType.VarChar).Value = endDate;
+                cmd.Parameters.Add("@startDate", SqlDbType.DateTime).Value = startDateTime;
+                cmd.Parameters.Add("@endDate", SqlDbType.DateTime).Value = endDateTime;
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while(reader.Read())

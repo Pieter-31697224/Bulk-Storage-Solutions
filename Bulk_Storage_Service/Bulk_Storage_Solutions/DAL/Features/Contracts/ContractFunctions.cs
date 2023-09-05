@@ -131,7 +131,7 @@ namespace Bulk_Storage_Solutions.DAL.Features.Contracts
                 cmd.Parameters.Add("@contractId", SqlDbType.Int).Value = contract.ContractId;
                 cmd.Parameters.Add("@contractDescription", SqlDbType.VarChar).Value = contract.ContractDescription;
                 cmd.Parameters.Add("@contractStatus", SqlDbType.VarChar).Value = contract.ContractStatus;
-                cmd.Parameters.Add("@contractStartDate", SqlDbType.Date).Value = contract.StartDate;
+                cmd.Parameters.Add("@contractStartDate", SqlDbType.DateTime).Value = contract.StartDate;
                 cmd.Parameters.Add("@contractEndDate", SqlDbType.DateTime).Value = contract.EndDate;
 
                 cmd.ExecuteNonQuery();
