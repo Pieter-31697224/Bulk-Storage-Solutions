@@ -60,13 +60,13 @@ namespace Bulk_Storage_Solutions
         protected global::System.Web.UI.WebControls.TextBox txtContractDesc;
 
         /// <summary>
-        /// txtContractStatus control.
+        /// ContractStatusDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContractStatus;
+        protected global::System.Web.UI.WebControls.DropDownList ContractStatusDropDownList;
 
         /// <summary>
         /// startDateCal control.
@@ -123,13 +123,13 @@ namespace Bulk_Storage_Solutions
         protected global::System.Web.UI.WebControls.TextBox txtEditDesc;
 
         /// <summary>
-        /// txtEditStatus control.
+        /// EditContractStatusDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEditStatus;
+        protected global::System.Web.UI.WebControls.DropDownList EditContractStatusDropDownList;
 
         /// <summary>
         /// txtEditStartDate control.

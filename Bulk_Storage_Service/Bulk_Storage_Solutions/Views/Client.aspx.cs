@@ -94,7 +94,6 @@ namespace Bulk_Storage_Solutions.Views
             EditClientID.Value = clientId.ToString();
             EditClientName.Text = client.ClientName;
             EditClientSurname.Text = client.ClientSurname;
-            EditClientStatusDropDownList.SelectedItem.Text = client.ClientStatus;
             EditClientContact.Text = client.ClientContact.ToString();
             EditClientEmail.Text = client.ClientEmail;
 
